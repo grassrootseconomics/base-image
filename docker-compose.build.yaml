@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  python:
+    image: ${IMAGE_BASE_URL}/python:${TAG:-latest}
+    build:
+      context: .
+      dockerfile: python/Dockerfile
+      cache_from:
+        - ${IMAGE_BASE_URL}/python:latest
+  node:
+    image: ${IMAGE_BASE_URL}/node:${TAG:-latest}
+    build:
+      context: .
+      dockerfile: node/Dockerfile
+      cache_from:
+        - ${IMAGE_BASE_URL}/node:latest
